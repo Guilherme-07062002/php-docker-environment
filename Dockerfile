@@ -4,11 +4,11 @@ FROM php:latest
 # Instalar extensões PHP necessárias (se aplicável)
 # RUN docker-php-ext-install <nome_da_extensão>
 
+# Instalar o Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
 # Configurar diretório de trabalho
-WORKDIR /var/www/html
+WORKDIR /app
 
-# Copiar o código do projeto para o contêiner
-COPY . /var/www/html
-
-# Executar servidor web (por exemplo, para desenvolvimento local)
+# Executar servidor web para desenvolvimento local
 CMD ["php", "-S", "0.0.0.0:8000"]

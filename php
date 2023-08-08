@@ -26,7 +26,7 @@ run)
     if docker ps -a | grep -q php_container; then
         echo "O contêiner php_container já existe."
     else
-        docker run -d --name php_container -p 8080:8080 -v "$(pwd)":/app php_custom
+        docker run -d --name php_container -p 8080:8000 -v "$(pwd)/app":/app php_custom
         echo "Contêiner php_container inicializado."
     fi
     ;;
